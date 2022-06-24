@@ -11,7 +11,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
     <title>test</title>
   </head>
   <body style="text-align: center;padding-top: 100px;">
@@ -30,14 +30,7 @@
       .then(function(stream) {
         document.querySelector('#video').srcObject = stream;
         /* 使用这个 stream stream */
-       
-        document.addEventListener("WeixinJSBridgeReady", function () { 
-
-        document.querySelector('#video').play(); 
-
-       
-
-    }, false); 
+       document.getElementById('btn').click()
       })
       .catch(function(err) {
         alert(JSON.stringify(err))
