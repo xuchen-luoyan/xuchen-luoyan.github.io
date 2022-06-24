@@ -29,7 +29,14 @@
       navigator.mediaDevices.getUserMedia({video: true, audio: true })
       .then(function(stream) {
         document.querySelector('#video').srcObject = stream;
-        document.querySelector('#btn').click()
+        let divEl = document.createElement('div')
+        document.body.appendChild(divEl)
+        divEl.onclick = function () {
+          document.querySelector('#video').play()
+          document.body.removeChild(divEl)
+          divEl = null
+        }
+        divEl.click()
       })
       .catch(function(err) {
         console.log('err',err)
