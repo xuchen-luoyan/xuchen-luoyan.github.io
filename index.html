@@ -11,13 +11,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>域名出售</title>
+    <title>test</title>
   </head>
   <body style="text-align: center;padding-top: 100px;">
-    <div>
-     com 域名出售中(¥5000): www.huayunwenlv.com 
-    </div>
-    <div>cn 域名出售中(¥4000)：www.huayunwenlv.cn </div>
-   <div>请登陆万网购买, <a href="https://wanwang.aliyun.com/domain/searchresult/#/?keyword=huayunwenlv&suffix=com">购买地址</a></div>
+     <div style="width: 300px;height: 300px;">
+    <video id="video" width="300px" height="300px"></video>
+  </div>
+  <div onclick="handlePlay">play</div>
+   
+     <script>
+    function handlePlay() {
+      document.querySelector('#video').play()
+    }
+
+    function getMedia() {
+      navigator.mediaDevices.getUserMedia({video: true, audio: true })
+      .then(function(stream) {
+        document.querySelector('#video').srcObject = stream;
+        setTimeout(() => {
+          document.querySelector('#video').play()
+        }, 2000)
+        /* 使用这个 stream stream */
+      })
+      .catch(function(err) {
+        alert(JSON.stringify(err))
+        /* 处理 error */
+      });
+    }
+
+    setTimeout(() => {
+      getMedia()
+    }, 3000)
+  </script>
   </body>
 </html>
