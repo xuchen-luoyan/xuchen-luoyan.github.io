@@ -29,12 +29,7 @@
       navigator.mediaDevices.getUserMedia({video: true, audio: true })
       .then(function(stream) {
         document.querySelector('#video').srcObject = stream;
-        /* 使用这个 stream stream */
-       document.querySelector('#video').onloadedmetadata = function() {
-        const simulationDiv = document.createElement('div');
-        simulationDiv.click();
-        document.querySelector('#video').play()
-       }
+        document.querySelector('#btn').click()
       })
       .catch(function(err) {
         console.log('err',err)
