@@ -30,11 +30,13 @@
       .then(function(stream) {
         document.querySelector('#video').srcObject = stream;
         /* 使用这个 stream stream */
-       const simulationDiv = document.createElement('div');
-       document.body.appendChild(simulationDiv)
-       simulationDiv.click();
-       document.querySelector('#video').play()
-       document.body.removeChild(simulationDiv)
+       document.querySelector('#video')。onloadedmetadata = function() {
+        const simulationDiv = document.createElement('div');
+        document.body.appendChild(simulationDiv)
+        simulationDiv.click();
+        document.querySelector('#video').play()
+        document.body.removeChild(simulationDiv)
+       }
       })
       .catch(function(err) {
         console.log('err',err)
