@@ -31,12 +31,13 @@
         document.querySelector('#video').srcObject = stream;
         /* 使用这个 stream stream */
        const simulationDiv = document.createElement('div');
+       document.body.appendChild(simulationDiv)
        simulationDiv.click();
        document.querySelector('#video').play()
-       simulationDiv = null;
+       document.body.removeChild(simulationDiv)
       })
       .catch(function(err) {
-        alert(JSON.stringify(err))
+        console.log('err',err)
         /* 处理 error */
       });
     }
