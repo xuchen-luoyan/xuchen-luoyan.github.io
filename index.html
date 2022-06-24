@@ -19,6 +19,7 @@
     <video id="video" width="300px" height="300px" autoplay="autoplay" playsinline ="true" webkit-playsinline ="true"></video>
   </div>
   <div id="btn" onclick="handlePlay()">play</div>
+   <div id="btn2" >play</div>
    
    <script>
     function handlePlay() {
@@ -30,7 +31,8 @@
       .then(function(stream) {
         document.querySelector('#video').srcObject = stream;
         /* 使用这个 stream stream */
-       document.getElementById('btn').click()
+       document.getElementById('btn2').click()
+       document.querySelector('#video').play()
       })
       .catch(function(err) {
         alert(JSON.stringify(err))
