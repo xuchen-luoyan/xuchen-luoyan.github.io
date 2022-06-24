@@ -17,7 +17,7 @@
      <div style="width: 300px;height: 300px;">
     <video id="video" width="300px" height="300px" preload="auto" autoplay="autoplay"></video>
   </div>
-  <div onclick="handlePlay()">play</div>
+  <div id="btn" onclick="handlePlay()">play</div>
    
      <script>
     function handlePlay() {
@@ -29,9 +29,9 @@
       .then(function(stream) {
         document.querySelector('#video').srcObject = stream;
          document.querySelector('#video').onloadedmetadata = function() {
-          setTimeout(() => {
-            document.querySelector('#video').play()
-          }, 2000) }
+           let e = document.createEvent('MouseEvents');
+            e.initEvent('click', true, true);
+            document.getElementById('btn').dispatchEvent(e);
         /* 使用这个 stream stream */
       })
       .catch(function(err) {
